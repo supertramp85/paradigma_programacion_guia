@@ -11,17 +11,17 @@ n = int(input("Ingrese el número de competidores: "))
 
 # Inicializar variables
 ganador = None
-tiempo_record = float(input("Ingrese el tiempo record de la carrera: "))
 tiempo_total = 0
+
+# Ingresar el tiempo récord
+tiempo_record = float(input("Ingrese el tiempo récord de la carrera: "))
 
 # Ciclo para ingresar la información de cada competidor
 for i in range(n):
     nombre = input(f"Ingrese el nombre del competidor {i + 1}: ")
-    tiempo = 
+    tiempo = float(input(f"Ingrese el tiempo de carrera del competidor {nombre}: "))
     
-    
-    
-    # Calcular el tiempo promedio
+    # Calcular el tiempo total
     tiempo_total += tiempo
     
     # Determinar al ganador
@@ -35,7 +35,6 @@ tiempo_promedio = tiempo_total / n
 print(f"El ganador de la carrera es {ganador['nombre']} con un tiempo de {ganador['tiempo']} minutos.")
 
 if ganador["tiempo"] < tiempo_record:
-    print("¡El ganador superó el tiempo record!")
+    print("¡El ganador superó el tiempo récord!")
 
 print(f"El tiempo promedio entre todos los ciclistas es {tiempo_promedio} minutos.")
-
