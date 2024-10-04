@@ -3,43 +3,35 @@
 #a) Calcular su aguinaldo, sabiendo que es la mitad del sueldo más alto del período.
 #b) Determinar en qué mes recibió el sueldo más bajo del período.
 #c) Informar el sueldo promedio del semestre.
+# Inicializar variables
+sueldo_mayor = 0
+sueldo_menor = None
+total_sueldos = 0
+mes_menor = 0
 
-opcion=0
-sueldo=0
-mes=0
-sueldo_menor=None
-sueldo_mayor=None
-total_sueldos=0
+# Ciclo para ingresar los sueldos del primer semestre (6 meses)
+for mes in range(1, 7):
+    sueldo = float(input(f"Ingrese el sueldo del mes {mes}: "))
 
-while True:
-    print("1 ingrese sueldo , 2 salir")
-    opcion= int( input("ingrese opcion"))
-    if opcion == 2:
-        break
-    if opcion == 1 :
-       for primersemestre in range (1,7):
-        print (f"mes: {primersemestre}")    
-       sueldo= float(input("ingrese sueldo: "))  
-
-       if sueldo_mayor > sueldo:
-          sueldo_mayor=sueldo
-          mes_mayor=mes
-
-       if sueldo_menor < sueldo:
-          sueldo_menor = sueldo 
-          mes_menor = mes  
-    #total      
+    # Sumar el sueldo al total
     total_sueldos += sueldo
 
-    print (primersemestre)
-    print (sueldo)
+    # Determinar el sueldo mayor
+    if sueldo > sueldo_mayor:
+        sueldo_mayor = sueldo
 
-aguinaldo= sueldo_mayor /2
-promedio= total_sueldos/6
+    # Determinar el sueldo menor
+    if sueldo_menor is None or sueldo < sueldo_menor:
+        sueldo_menor = sueldo
+        mes_menor = mes
 
-print(f"El aguinaldo es de : {aguinaldo}")
-print(f"El sueldo menor fue de : {sueldo_menor}")
-print(f"El promedio es de : {promedio}")
+# Calcular aguinaldo (la mitad del sueldo mayor)
+aguinaldo = sueldo_mayor / 2
 
+# Calcular promedio de los sueldos
+promedio = total_sueldos / 6
 
-
+# Mostrar resultados
+print(f"El aguinaldo es de: {aguinaldo}")
+print(f"El sueldo más bajo fue de: {sueldo_menor} en el mes {mes_menor}")
+print(f"El sueldo promedio del semestre es: {promedio}")
